@@ -30,7 +30,7 @@ public class ComposeActivity extends AppCompatActivity {
 
     EditText etCompose;
     Button btnTweet;
-    TextView tvChars;   // Counts number of characters
+    //TextView tvChars;   // Counts number of characters
 
     TwitterClient client;
 
@@ -42,24 +42,26 @@ public class ComposeActivity extends AppCompatActivity {
         client = TwitterApp.getRestClient(this);
 
         etCompose = findViewById(R.id.etCompose);
+        String strValue = etCompose.getText().toString();   // Value of text entered in etCompose
         btnTweet = findViewById(R.id.btnTweet);
-        tvChars = findViewById(R.id.tvChars);
+
 
         etCompose.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // Fires right as the text is being changed (even supplies the range of text)
+                // Fires right before text is changing
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                // Fires right before text is changing
+                // Fires right as the text is being changed (even supplies the range of text)
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
                 // Fires right after the text has changed
-                tvChars.setText(editable.toString());
+                //tvChars.setText(editable.toString());
             }
         });
 
